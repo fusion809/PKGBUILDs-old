@@ -21,8 +21,6 @@ sha256sums=('f8d9d6d3e4f0f9118813a8c4f3f895c07a21ec121378bf77cd9db210a6900473'
 prepare() {
   cd "${_pkgname}-$pkgver"
 
-  patch -Np0 -i "$srcdir/atom-python.patch"
-
   sed -i -e "/exception-reporting/d" \
       -e "/metrics/d" package.json
 
