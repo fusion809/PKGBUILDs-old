@@ -2,7 +2,7 @@
 
 _pkgname=atom
 pkgname=atom-editor
-pkgver=1.4.2
+pkgver=1.4.3
 pkgrel=1
 pkgdesc='Chrome-based text editor from Github'
 arch=('x86_64' 'i686')
@@ -13,10 +13,8 @@ optdepends=('gvfs: file deletion support')
 makedepends=('git' 'npm')
 conflicts=('atom-editor-bin' 'atom-editor-beta' 'atom-editor-beta-bin' 'atom-editor-git')
 install=atom.install
-source=("v${pkgver}.tar.gz::https://codeload.github.com/atom/atom/tar.gz/v${pkgver}"
-        'atom-python.patch')
-sha256sums=('f8d9d6d3e4f0f9118813a8c4f3f895c07a21ec121378bf77cd9db210a6900473'
-            'f3a1b7f032cd2d98cf56dc1d912d6a7791656a470514e316b0e6132eb5cf9dc0')
+source=("v${pkgver}.tar.gz::https://codeload.github.com/atom/atom/tar.gz/v${pkgver}")
+sha256sums=('3d7735cd974859db5cc73a5aa97af5c48b783ca0da93dd885636ce16566c1c69')
 
 prepare() {
   cd "${_pkgname}-$pkgver"
