@@ -8,7 +8,7 @@ The `atom-editor` package in this repository is designed to not fail, in its bui
 On 7 February 2016 I experienced some git issues commiting to the AUR (see [forum topic 1602376](https://bbs.archlinux.org/viewtopic.php?pid=1602376) for further details) so until it gets resolved I have re-added the correct `moksha` PKGBUILD to this repository. 
 
 ## Vim
-I have also included Vim-related packages, as [Vim updates](https://github.com/vim/vim/releases) come out daily or even hourly, so it's unrealistic to expect the maintainers of the gvim and vim packages at https://www.archlinux.org/packages/extra/x86_64/gvim and https://www.archlinux.org/packages/extra/x86_64/vim to keep them constantly up-to-date. To install the latest gVim using this repository I recommend you run:
+I have also included Vim-related packages, as [Vim updates](https://github.com/vim/vim/releases) come out daily or even hourly, so it is unrealistic to expect the maintainers of the gvim and vim packages at https://www.archlinux.org/packages/extra/x86_64/gvim and https://www.archlinux.org/packages/extra/x86_64/vim, respectively, to keep them constantly up-to-date. To install the latest gVim using this repository I recommend you run:
 ```bash
 git clone https://github.com/fusion809/PKGBUILDs
 cd PKGBUILDs/gvim-git
