@@ -7,4 +7,4 @@ git clone https://github.com/fusion809/PKGBUILDs
 cd PKGBUILDs
 ./update-vim.sh
 ```
-The `gvim-git` package in this repository is a combination of the `gvim-git` and `vim-runtime-git` packages in the AUR. I merged these packages to save bandwidth as both PKGBUILDs clone the same GitHub repository.
+The `gvim-git` package in this repository is a combination of the `gvim-git` and `vim-runtime-git` packages in the AUR. I merged these packages to save bandwidth as both PKGBUILDs clone the same [GitHub repository](https://github.com/vim/vim).
