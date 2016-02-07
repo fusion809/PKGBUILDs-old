@@ -1,0 +1,17 @@
+*.7z
+*.zip
+*.rar
+*.tar.bz2
+*.tar.gz
+*.tar.lzma
+*.tar.lz
+*.tar.xz
+src
+pkg
+moksha-modules-extra
+Moksha*
+vim
+vim-pathogen
+vundle-git/vundle-git
+atom
+*.ebuild

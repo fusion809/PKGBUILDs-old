@@ -1,0 +1,32 @@
+# Maintainer Brenton Horne <brentonhorne77@gmail.com>
+pkgname=e_dbus
+pkgver=1.7.10
+pkgrel=1
+pkgdesc="A more recent version of e_dbus than provided by pacman"
+arch=('i686' 'x86_64')
+license=('BSD')
+depends=('efl' 'elementary')
+provides=("$pkgname=$pkgver")
+conflicts=("$pkgname")
+source=("https://download.enlightenment.org/releases/e_dbus-1.7.10.tar.bz2")
+sha256sums=('SKIP')
+
+build() {
+  cd $pkgname-$pkgver
+
+  export CFLAGS="$CFLAGS -fvisibility=hidden"
+
+  ./autogen.sh \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --enable-wayland \
+    --enable-xwayland
+
+  make
+}
+
+package() {
+  cd $pkgname-$pkgver
+
+  make DESTDIR="$pkgdir" install
+}
