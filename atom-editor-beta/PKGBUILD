@@ -4,49 +4,51 @@ pkgname=atom-editor-beta
 _pkgrel=beta3
 _pkgver=1.5.0
 pkgver="${_pkgver}.${_pkgrel}"
-pkgrel=1
-pkgdesc='Chrome-based text editor from Github (beta stream compiled from git)'
+pkgrel=2
+pkgdesc='Chrome-based text editor from Github - Beta Channel'
 arch=('x86_64' 'i686')
-url='https://atom.io/'
+url='https://github.com/atom/atom'
 license=('MIT')
 depends=('alsa-lib' 'desktop-file-utils' 'gconf' 'gtk2' 'libgnome-keyring' 'libnotify' 'libxtst' 'nodejs' 'nss' 'python2')
 optdepends=('gvfs: file deletion support')
 makedepends=('git' 'npm')
-conflicts=('atom-editor-bin' 'atom-editor-git' 'atom-editor-beta-bin')
+conflicts=('atom-editor-bin' 'atom-editor-git' 'atom-editor-beta-bin' 'atom-editor')
 install=atom.install
 source=("https://github.com/atom/atom/archive/v${_pkgver}-${_pkgrel}.tar.gz"
-        'atom-python.patch')
+        'atom-desktop.patch')
 sha256sums=('327ee22f709de65bf7b666371569a2094d04faf6dc983e32555d0bde80273da4'
-            'f3a1b7f032cd2d98cf56dc1d912d6a7791656a470514e316b0e6132eb5cf9dc0')
+            'b144dd1578528ca7f3d8d100db873eb32fbc4d801e45b2161d281629a32695a1')
 
 prepare() {
-  cd "atom-${_pkgver}-${_pkgrel}"
+	cd "atom-${_pkgver}-${_pkgrel}"
 
-  patch -Np0 -i "$srcdir/atom-python.patch"
-
-  sed -i -e "/exception-reporting/d" \
-      -e "/metrics/d" package.json
+	sed -i -e "/exception-reporting/d" \
+		-e "/metrics/d" package.json
+  sed -i -e 's/"electronVersion": "0.34.5",/"electronVersion": "0.36.7",/g' \
+    package.json
 
   sed -e "s/<%= description %>/$pkgdesc/" \
-    -e "s|<%= appName %>|Atom|"\
-    -e "s|<%= installDir %>/share/<%= appFileName %>|/usr/bin|"\
-    -e "s|<%= iconPath %>|atom|"\
-    resources/linux/atom.desktop.in > resources/linux/Atom.desktop
+      -e "s|<%= appName %>|Atom|"\
+      -e "s|<%= installDir %>/share/<%= appFileName %>|/usr/bin|"\
+      -e "s|<%= iconPath %>|atom|"\
+      -e "s|GNOME;||" \
+      -e "s|text/plain;|application/javascript;application/json;application/postscript;application/x-csh;application/x-desktop;application/x-httpd-eruby;application/x-httpd-php;application/x-httpd-php3;application/x-httpd-php4;application/x-httpd-php5;application/x-latex;application/x-msdos-program;application/x-ruby;application/x-sh;application/x-shellscript;application/x-sql;application/x-tcl;application/x-tex;application/xhtml+xml;application/xml;application/xml-dtd;application/xslt+xml;text/css;text/csv;text/html;text/plain;text/xml;text/xml-dtd;text/x-asm;text/x-bibtex;text/x-boo;text/x-c++;text/x-c++hdr;text/x-c++src;text/x-c;text/x-chdr;text/x-csh;text/x-csrc;text/x-dsrc;text/x-diff;text/x-eiffel;text/x-fortran;text/x-go;text/x-haskell;text/x-java;text/x-java-source;text/x-lua;text/x-makefile;text/x-markdown;text/x-objc;text/x-pascal;text/x-perl;text/x-php;text/x-python;text/x-ruby;text/x-scala;text/x-scheme;text/x-sh;text/x-tcl;text/x-tex;text/x-vala;text/yaml;|" \
+      resources/linux/atom.desktop.in > resources/linux/Atom.desktop
 }
 
 build() {
-  cd "$srcdir/atom-${_pkgver}-${_pkgrel}"
+	cd "$srcdir/atom-${_pkgver}-${_pkgrel}"
 
-  export PYTHON=python2
-  script/build --build-dir "$srcdir/atom-build"
+	export PYTHON=python2
+	script/build --build-dir "$srcdir/atom-build"
 }
 
 package() {
-  cd "$srcdir/atom-${_pkgver}-${_pkgrel}"
+	cd "$srcdir/atom-${_pkgver}-${_pkgrel}"
 
-  script/grunt install --build-dir "$srcdir/atom-build" --install-dir "$pkgdir/usr"
-
-  install -Dm644 resources/linux/Atom.desktop "$pkgdir/usr/share/applications/atom.desktop"
-  install -Dm644 resources/app-icons/stable/png/1024.png "$pkgdir/usr/share/pixmaps/atom.png"
-  install -Dm644 LICENSE.md "$pkgdir/usr/share/licenses/$pkgname/LICENSE.md"
+	script/grunt install --build-dir "$srcdir/atom-build" --install-dir "$pkgdir/usr"
+	patch resources/linux/Atom.desktop < "${srcdir}/atom-desktop.patch"
+	install -Dm644 resources/linux/Atom.desktop "$pkgdir/usr/share/applications/atom.desktop"
+	install -Dm644 resources/app-icons/stable/png/1024.png "$pkgdir/usr/share/pixmaps/atom.png"
+	install -Dm644 LICENSE.md "$pkgdir/usr/share/licenses/$pkgname/LICENSE.md"
 }

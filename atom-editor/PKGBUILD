@@ -3,7 +3,7 @@
 _pkgname=atom
 pkgname=atom-editor
 pkgver=1.4.3
-pkgrel=1
+pkgrel=2
 pkgdesc='Chrome-based text editor from Github'
 arch=('x86_64' 'i686')
 url='https://github.com/atom/atom'
@@ -20,7 +20,9 @@ prepare() {
   cd "${_pkgname}-$pkgver"
 
   sed -i -e "/exception-reporting/d" \
-      -e "/metrics/d" package.json
+		-e "/metrics/d" package.json
+  sed -i -e 's/"electronVersion": "0.34.5",/"electronVersion": "0.36.7",/g' \
+    package.json
 
   sed -e "s/<%= description %>/$pkgdesc/" \
       -e "s|<%= appName %>|Atom|"\
