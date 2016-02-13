@@ -21,8 +21,6 @@ prepare() {
 
   sed -i -e "/exception-reporting/d" \
 		-e "/metrics/d" package.json
-  sed -i -e 's/"electronVersion": "0.34.5",/"electronVersion": "0.36.7",/g' \
-    package.json
 
   sed -e "s/<%= description %>/$pkgdesc/" \
       -e "s|<%= appName %>|Atom|"\
