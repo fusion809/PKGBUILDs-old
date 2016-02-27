@@ -20,7 +20,7 @@ prepare() {
   cd "${_pkgname}-$pkgver"
 
   sed -i -e "/exception-reporting/d" \
-		-e "/metrics/d" package.json
+	 -e "/metrics/d" package.json
 
   sed -i -e "s/<%= appName %>/Atom/g" \
       -e "s|<%= installDir %>/share/<%= appFileName %>|/usr/bin|g" \
