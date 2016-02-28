@@ -6,6 +6,7 @@
 *.tar.lzma
 *.tar.lz
 *.tar.xz
+*.part
 src
 pkg
 moksha-modules-extra
