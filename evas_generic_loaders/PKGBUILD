@@ -11,8 +11,8 @@ url="http://www.enlightenment.org"
 license=('GPL2')
 depends=('librsvg' 'poppler' 'libraw' 'libspectre' 'efl')
 options=('!emptydirs')
-source=(http://download.enlightenment.org/rel/libs/${pkgname}/${pkgname}-${pkgver}.tar.gz)
-sha1sums=('7f5eb10fd7bd9d9b2409300e21935ab0e9dcbab8')
+source=(http://download.enlightenment.org/rel/libs/${pkgname}/${pkgname}-${pkgver}.tar.xz)
+sha1sums=('defb7f240e8ebb67ca928a675a9d6339e5b93e64')
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
