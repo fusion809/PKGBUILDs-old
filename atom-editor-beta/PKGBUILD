@@ -10,9 +10,9 @@ pkgdesc='Chrome-based text editor from Github - Beta Channel'
 arch=('x86_64' 'i686')
 url='https://github.com/atom/atom'
 license=('MIT')
-depends=('alsa-lib' 'desktop-file-utils' 'gconf' 'gtk2' 'libgnome-keyring' 'libnotify' 'libxtst' 'nodejs' 'nss')
+depends=('alsa-lib' 'gconf' 'gtk2' 'libgnome-keyring' 'libnotify' 'libxtst' 'nodejs' 'nss' 'python2')
 optdepends=('gvfs: file deletion support')
-makedepends=('git' 'npm' 'python2')
+makedepends=('git' 'npm')
 conflicts=('atom-editor-beta-bin')
 install=atom.install
 source=("https://github.com/atom/atom/archive/v${_pkgver}-${_pkgrel}.tar.gz")
@@ -44,6 +44,7 @@ package() {
 	cd "$srcdir/atom-${_pkgver}-${_pkgrel}"
 
 	script/grunt install --build-dir "$srcdir/atom-build" --install-dir "$pkgdir/usr"
+
   mv "$pkgdir/usr/share/atom" "$pkgdir/usr/share/atom-beta"
   mv "$pkgdir/usr/bin/atom" "$pkgdir/usr/bin/atom-beta"
   mv "$pkgdir/usr/share/atom-beta/resources/app/apm" "$pkgdir/usr/share/atom-beta/resources/app/apm-beta"
