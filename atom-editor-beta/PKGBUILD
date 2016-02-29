@@ -25,7 +25,7 @@ prepare() {
 	 -e 's/    "settings-view"/    "package-sync": "1.0.0",\n    "settings-view"/g' package.json
 
   sed -e "s/<%= description %>/$pkgdesc/" \
-      -e "s|<%= appName %>|Atom|"\
+      -e "s|<%= appName %>|Atom Beta|"\
       -e "s|<%= installDir %>/share/<%= appFileName %>/atom|/usr/bin/atom-beta|"\
       -e "s|<%= iconPath %>|atom-beta|"\
       -e "s|GNOME;||" \
