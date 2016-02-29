@@ -57,6 +57,6 @@ package() {
   rm "$pkgdir/usr/share/applications/atom.desktop"
 	patch resources/linux/atom-beta.desktop < "${srcdir}/atom-desktop.patch"
 	install -Dm644 resources/linux/atom-beta.desktop "$pkgdir/usr/share/applications/atom-beta.desktop"
-	install -Dm644 resources/app-icons/stable/png/1024.png "$pkgdir/usr/share/pixmaps/atom-beta.png"
+	install -Dm644 resources/app-icons/beta/png/1024.png "$pkgdir/usr/share/pixmaps/atom-beta.png"
 	install -Dm644 LICENSE.md "$pkgdir/usr/share/licenses/$pkgname/LICENSE.md"
 }
