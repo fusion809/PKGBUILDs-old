@@ -24,7 +24,7 @@ prepare() {
   sed -i -e "/exception-reporting/d" \
 	       -e "/metrics/d" package.json
 
-  sed -i -e "s/<%= description %>/$pkgdesc/" \
+  sed    -e "s/<%= description %>/$pkgdesc/" \
          -e "s|<%= appName %>|Atom Beta|"\
          -e "s|<%= installDir %>/share/<%= appFileName %>/atom|/usr/bin/atom-beta|"\
          -e "s|<%= iconPath %>|atom-beta.png|"\
