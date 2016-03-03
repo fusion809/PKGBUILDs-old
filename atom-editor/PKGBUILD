@@ -2,7 +2,7 @@
 
 _pkgname=atom
 pkgname=atom-editor
-pkgver=1.6.0.beta1.434.g2bdf4be
+pkgver=1.5.4
 pkgrel=1
 pkgdesc='Hackable text editor for the 21st Century, based on web technologies.'
 arch=('x86_64' 'i686')
