@@ -2,7 +2,7 @@
 # Contributor: Brenton Horne <brentonhorne77 at gmail dot com>
 
 pkgname=atom-editor-beta
-_pkgrel=beta6
+_pkgrel=beta7
 _pkgver=1.6.0
 pkgver="${_pkgver}.${_pkgrel}"
 pkgrel=1
@@ -16,7 +16,7 @@ makedepends=('git' 'npm')
 conflicts=('atom-editor-beta-bin')
 install=atom.install
 source=("https://github.com/atom/atom/archive/v${_pkgver}-${_pkgrel}.tar.gz")
-sha256sums=('833129797fb450f5e63b4b08a2ef88fbd30c09d8461bb9637815ebb63380d806')
+sha256sums=('66fa84ab4e84ed0e4ea52ff4cfe8b7cc873252f8ee6048f3ceb51464bf8d5962')
 
 prepare() {
 	cd "atom-${_pkgver}-${_pkgrel}"
@@ -45,15 +45,27 @@ package() {
 
 	script/grunt install --build-dir "$srcdir/atom-build" --install-dir "$pkgdir/usr"
 
-  mv "$pkgdir/usr/share/atom" "$pkgdir/usr/share/atom-beta"
-  mv "$pkgdir/usr/bin/atom" "$pkgdir/usr/bin/atom-beta"
-  mv "$pkgdir/usr/share/atom-beta/resources/app/apm" "$pkgdir/usr/share/atom-beta/resources/app/apm-beta"
-  mv "$pkgdir/usr/share/atom-beta/resources/app/apm-beta/node_modules/.bin/apm" "$pkgdir/usr/share/atom-beta/resources/app/apm-beta/node_modules/.bin/apm-beta"
-  rm "$pkgdir/usr/bin/apm"
-  cd "$pkgdir/usr/bin"
-  ln -s "../share/atom-beta/resources/app/apm-beta/node_modules/.bin/apm-beta" apm-beta
-  cd -
-  rm "$pkgdir/usr/share/applications/atom.desktop"
+	if [[ -d "$pkgdir/usr/share/atom" ]]; then
+  	mv "$pkgdir/usr/share/atom" "$pkgdir/usr/share/atom-beta"
+	fi
+  if [[ -f "$pkgdir/usr/bin/atom" ]]; then
+		mv "$pkgdir/usr/bin/atom" "$pkgdir/usr/bin/atom-beta"
+  fi
+	if [[ -d "$pkgdir/usr/share/atom-beta/resources/app/apm" ]]; then
+		mv "$pkgdir/usr/share/atom-beta/resources/app/apm" "$pkgdir/usr/share/atom-beta/resources/app/apm-beta"
+  fi
+	if [[ -f "$pkgdir/usr/share/atom-beta/resources/app/apm-beta/node_modules/.bin/apm" ]]; then
+		mv "$pkgdir/usr/share/atom-beta/resources/app/apm-beta/node_modules/.bin/apm" "$pkgdir/usr/share/atom-beta/resources/app/apm-beta/node_modules/.bin/apm-beta"
+  fi
+	if [[ -f "$pkgdir/usr/bin/apm" ]]; then
+		rm "$pkgdir/usr/bin/apm"
+		cd "$pkgdir/usr/bin"
+		ln -s "../share/atom-beta/resources/app/apm-beta/node_modules/.bin/apm-beta" apm-beta
+		cd -
+  fi
+	if [[ -f "$pkgdir/usr/share/applications/atom.desktop" ]]; then
+  	rm "$pkgdir/usr/share/applications/atom.desktop"
+	fi
 	install -Dm644 resources/linux/atom-beta.desktop "$pkgdir/usr/share/applications/atom-beta.desktop"
 	install -Dm644 resources/app-icons/beta/png/1024.png "$pkgdir/usr/share/pixmaps/atom-beta.png"
 	install -Dm644 LICENSE.md "$pkgdir/usr/share/licenses/$pkgname/LICENSE.md"
