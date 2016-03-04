@@ -5,7 +5,8 @@
 *.tar.gz
 *.tar.lzma
 *.tar.lz
-*.tar.xz
+*.xz
+*.sign
 *.part
 src
 pkg
