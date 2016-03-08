@@ -3,7 +3,7 @@
 
 pkgname=atom-editor-beta
 _pkgrel=7
-_pkgver=1.6
+_pkgver=1.6.0
 pkgver="${_pkgver}.${_pkgrel}"
 pkgrel=1
 pkgdesc='Chrome-based text editor from GitHub - Beta Channel'
@@ -15,7 +15,7 @@ optdepends=('gvfs: file deletion support')
 makedepends=('git' 'npm')
 conflicts=('atom-editor-beta-bin')
 install=atom.install
-source=("https://github.com/atom/atom/archive/v${_pkgver}-${_pkgrel}.tar.gz")
+source=("https://github.com/atom/atom/archive/v${_pkgver}-beta${_pkgrel}.tar.gz")
 sha256sums=('66fa84ab4e84ed0e4ea52ff4cfe8b7cc873252f8ee6048f3ceb51464bf8d5962')
 
 prepare() {
