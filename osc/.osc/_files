@@ -1,0 +1,5 @@
+<directory name="osc" rev="2" srcmd5="3c8614452cc231aa96b474d69540cc37" vrev="2">
+  <serviceinfo code="succeeded" xsrcmd5="450629332ddf9b1aabac99f22f65a056" />
+  <entry md5="5892ddc09911a02247dc130c7f8700a1" mtime="1457431882" name="PKGBUILD" size="1998" />
+  <entry md5="aa71f97dc7f26a55ef42ad7744281214" mtime="1457430900" name="_service" size="60" />
+</directory>

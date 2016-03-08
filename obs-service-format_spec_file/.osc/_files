@@ -1,0 +1,5 @@
+<directory name="obs-service-format_spec_file" rev="2" srcmd5="4c24c62cd27f30ff80f01bace4ea66d9" vrev="2">
+  <serviceinfo code="succeeded" xsrcmd5="e0f71b30135dde716e6b88e238362a24" />
+  <entry md5="3c1115b20010430e14630e3ee41aeb07" mtime="1457430802" name="PKGBUILD" size="861" />
+  <entry md5="aa71f97dc7f26a55ef42ad7744281214" mtime="1457429766" name="_service" size="60" />
+</directory>

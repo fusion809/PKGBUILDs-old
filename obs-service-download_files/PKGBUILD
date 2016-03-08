@@ -1,0 +1,25 @@
+# Contributor: Patrick McCarty <pnorcks at gmail dot com>
+
+pkgname=obs-service-download_files
+pkgver=0.5.1
+pkgrel=2
+_pkgrel=3.1.2
+pkgdesc='An OBS source service: downloads all remote sources listed in a spec file'
+arch=('any')
+url='https://github.com/openSUSE/obs-service-download_files'
+license=('GPL2')
+depends=('obs-build' 'diffutils' 'wget' 'perl-uri')
+source=("https://github.com/openSUSE/obs-service-download_files/archive/$pkgver.tar.gz")
+sha256sums=('e9d268b82ce701b12e112824441454e7dbae371d9bfa9a88e731f64a2ad9c389')
+
+package() {
+  cd $srcdir/$pkgname-$pkgver
+  mkdir -p "$pkgdir/usr/lib/obs/service/"
+  install -m755 download_files "$pkgdir/usr/lib/obs/service/"
+  install -m644 download_files.service "$pkgdir/usr/lib/obs/service/"
+  mkdir -p "$pkgdir/etc/obs/services"
+  install -m644 download_files.rc "$pkgdir/etc/obs/services/download_files"
+  mkdir -p $pkgdir/var/cache/obs/download_files/file{,name}
+}
+
+# vim:set ts=2 sw=2 et:

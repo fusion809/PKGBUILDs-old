@@ -1,0 +1,30 @@
+# Contributor: Johannes Dewender arch at JonnyJD dot net
+# Contributor: Andrea Scarpino <andrea@archlinux.org>
+
+pkgname=obs-service-source_validator
+pkgver=62c56d3c13eb95c40cadff4d1e036d947c800ad4
+pkgrel=1
+_pkgrel=1.1
+pkgdesc='An OBS source service: running all the osc source-validator checks'
+arch=('any')
+url='https://build.opensuse.org/package/show?package=obs-service-source_validator&project=openSUSE%3AFactory'
+license=('GPL2')
+depends=('libxml2' 'perl')
+provides=("osc-source_validator=$pkgver")
+conflicts=('osc-source_validator<=0.1')
+_gitcommit=62c56d3c13eb95c40cadff4d1e036d947c800ad4
+source=("https://github.com/openSUSE/$pkgname/archive/${_gitcommit}.tar.gz")
+sha256sums=('0f3d5853d041355c3f422f03df902bb90a393859b248747d327a7accffb3d719')
+
+build() {
+  cd "$srcdir/$pkgname-${_gitcommit}"
+  make
+}
+
+package() {
+  cd "$srcdir/$pkgname-${_gitcommit}"
+
+  make install DESTDIR=${pkgdir}
+}
+
+# vim:set ts=2 sw=2 et:
