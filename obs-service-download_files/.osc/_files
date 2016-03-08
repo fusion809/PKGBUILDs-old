@@ -1,5 +1,0 @@
-<directory name="obs-service-download_files" rev="1" srcmd5="0297200747503e8a3e8b308847d02d4c" vrev="1">
-  <serviceinfo code="succeeded" xsrcmd5="2f4e18305fd1a8733bace7da552f6a49" />
-  <entry md5="8a55be602b87114a823939666fa237da" mtime="1457429415" name="PKGBUILD" size="944" />
-  <entry md5="aa71f97dc7f26a55ef42ad7744281214" mtime="1457429417" name="_service" size="60" />
-</directory>

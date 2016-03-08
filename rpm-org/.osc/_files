@@ -1,8 +1,0 @@
-<directory name="rpm-org" rev="2" srcmd5="9e4acff470c8076c714d5dab05349e05" vrev="2">
-  <serviceinfo code="succeeded" xsrcmd5="38fbf5a73cc6ff2e7b407481158d387f" />
-  <entry md5="e58c5859512d71e166bb0eb62a2fcf8e" mtime="1457429589" name="PKGBUILD" size="2187" />
-  <entry md5="aa71f97dc7f26a55ef42ad7744281214" mtime="1457429630" name="_service" size="60" />
-  <entry md5="751739d899c110f4f24b1cb82bc2700d" mtime="1432547625" name="lua-5.3.patch" size="1897" />
-  <entry md5="1f7f4f3b3a93ff6d2f600c7751ae25ef" mtime="1432547637" name="rpmextract.sh" size="108" />
-  <entry md5="ebac47a2e43bf50898139049a6829bfb" mtime="1432547639" name="rpmlib-filesystem-check.patch" size="3170" />
-</directory>

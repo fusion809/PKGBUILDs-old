@@ -1,5 +1,0 @@
-<directory name="obs-build" rev="1" srcmd5="056ddc8ebefb806488f01aeae8ac9582" vrev="1">
-  <serviceinfo code="succeeded" xsrcmd5="fa5cd40a387521f5f79d8ad5f7f7ab52" />
-  <entry md5="1c4b5a50bd9140dee56b868706cf8bc2" mtime="1457429512" name="PKGBUILD" size="604" />
-  <entry md5="aa71f97dc7f26a55ef42ad7744281214" mtime="1457429514" name="_service" size="60" />
-</directory>
