@@ -7,7 +7,6 @@
 pkgname=rpm-org
 pkgver=4.12.0.1
 _pkgver=$pkgver
-#_pkgver=4.12.0-rc1
 pkgrel=3
 pkgdesc="RPM Package Manager - RPM.org fork, used in major RPM distros"
 arch=('i686' 'x86_64')
