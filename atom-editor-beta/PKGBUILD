@@ -2,8 +2,8 @@
 # Contributor: Brenton Horne <brentonhorne77 at gmail dot com>
 
 pkgname=atom-editor-beta
-_pkgrel=beta7
-_pkgver=1.6.0
+_pkgrel=7
+_pkgver=1.6
 pkgver="${_pkgver}.${_pkgrel}"
 pkgrel=1
 pkgdesc='Chrome-based text editor from GitHub - Beta Channel'
