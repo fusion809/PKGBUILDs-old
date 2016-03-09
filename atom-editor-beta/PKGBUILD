@@ -16,10 +16,10 @@ makedepends=('git' 'npm')
 conflicts=('atom-editor-beta-bin')
 install=atom.install
 source=("https://github.com/atom/atom/archive/v${_pkgver}-beta${_pkgrel}.tar.gz")
-sha256sums=('66fa84ab4e84ed0e4ea52ff4cfe8b7cc873252f8ee6048f3ceb51464bf8d5962')
+sha256sums=('7e4949e9b07826158db1ee17450fd9abb5ab24391e83439ccc5ab5c9beab21fe')
 
 prepare() {
-	cd "atom-${_pkgver}-${_pkgrel}"
+	cd "atom-${_pkgver}-beta${_pkgrel}"
 
   sed -i -e "/exception-reporting/d" \
 	       -e "/metrics/d" package.json
@@ -34,14 +34,14 @@ prepare() {
 }
 
 build() {
-	cd "$srcdir/atom-${_pkgver}-${_pkgrel}"
+	cd "$srcdir/atom-${_pkgver}-beta${_pkgrel}"
 
 	export PYTHON=/usr/bin/python2
 	until ./script/build --build-dir "$srcdir/atom-build"; do :; done
 }
 
 package() {
-	cd "$srcdir/atom-${_pkgver}-${_pkgrel}"
+	cd "$srcdir/atom-${_pkgver}-beta${_pkgrel}"
 
 	script/grunt install --build-dir "$srcdir/atom-build" --install-dir "$pkgdir/usr"
 
