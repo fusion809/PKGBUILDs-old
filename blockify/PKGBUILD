@@ -7,7 +7,7 @@ arch=("any")
 url="https://github.com/mikar/${pkgname}"
 license=("MIT")
 conflicts=("blockify-git")
-depends=("spotify-stable" "pulseaudio" "alsa-utils" "pygtk"
+depends=("spotify" "pulseaudio" "alsa-utils" "pygtk"
          "gst-python" "python-dbus" "python-setuptools" "python-docopt")
 source=("https://github.com/mikar/${pkgname}/archive/v${pkgver}.tar.gz")
 
@@ -15,5 +15,19 @@ package() {
     cd "$srcdir"/${pkgname}-${pkgver}
 
     python setup.py install --root="${pkgdir}"
+    mkdir -p ${pkgdir}/usr/local/bin
+    mkdir -p ${pkgdir}/usr/share/licenses
+    install -D -m644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+    echo "#!/bin/sh
+
+spotify=/usr/bin/spotify
+
+if [[ -x $spotify && -x /usr/bin/blockify ]];
+then
+blockify &
+block_pid=$!
+$spotify
+trap "kill -9 $block_pid" SIGINT SIGTERM EXIT
+fi" > ${pkgdir}/usr/local/bin/spotify
 }
 sha256sums=('0bb4d8da4a294d3ad831726f690c9bfbcfa3f1683f56a094f39d1422495d71ab')
