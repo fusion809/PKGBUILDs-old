@@ -1,0 +1,6 @@
+<directory name="unix-runescape-client" rev="1" srcmd5="d36e45c3cfd5ea9e0d70dd724098deae" vrev="1">
+  <serviceinfo code="succeeded" xsrcmd5="d3ad77fd1dafd1ffb11c78f88a2a41df" />
+  <entry md5="02f8ef6724edfafeed471684ee1b65bd" mtime="1457316847" name="PKGBUILD" size="1255" />
+  <entry md5="aa71f97dc7f26a55ef42ad7744281214" mtime="1457250338" name="_service" size="60" />
+  <entry md5="2b2a8353c63d0e6ef745821657ff6614" mtime="1457250340" name="unix-runescape-client.install" size="125" />
+</directory>
