@@ -2,8 +2,8 @@
 # Contributor: Brenton Horne <brentonhorne77 at gmail dot com>
 
 pkgname=atom-editor-beta
-_pkgrel=8
-_pkgver=1.6.0
+_pkgrel=0
+_pkgver=1.7.0
 pkgver="${_pkgver}.${_pkgrel}"
 pkgrel=1
 pkgdesc='Chrome-based text editor from GitHub - Beta Channel'
@@ -16,7 +16,7 @@ makedepends=('git' 'npm')
 conflicts=('atom-editor-beta-bin')
 install=atom.install
 source=("https://github.com/atom/atom/archive/v${_pkgver}-beta${_pkgrel}.tar.gz")
-sha256sums=('7e4949e9b07826158db1ee17450fd9abb5ab24391e83439ccc5ab5c9beab21fe')
+sha256sums=('d370f725a1b6fab0583f7d412f189a3c35603a7472a6566b188d0c2ae7e98bdf')
 
 prepare() {
 	cd "atom-${_pkgver}-beta${_pkgrel}"
