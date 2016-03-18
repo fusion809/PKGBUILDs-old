@@ -20,8 +20,8 @@ sha256sums=('d370f725a1b6fab0583f7d412f189a3c35603a7472a6566b188d0c2ae7e98bdf')
 
 prepare() {
 	cd "$srcdir/atom-${_pkgver}-beta${_pkgrel}"
-
-  sed -i -e "/exception-reporting/d" \
+	
+	sed -i -e "/exception-reporting/d" \
 	       -e "/metrics/d" package.json
 
   sed -e "s/<%= description %>/$pkgdesc/" \
