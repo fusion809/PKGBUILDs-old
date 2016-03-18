@@ -1,0 +1,6 @@
+<directory name="kazam" rev="1" srcmd5="84eb8d7c509199f7804ecc554166a80e" vrev="1">
+  <entry md5="cdbaf341a3faddf5a91613f6b7a566f1" mtime="1457409488" name="PKGBUILD" size="1116" />
+  <entry md5="8e751e821558c989ac02ef687a7b7339" mtime="1457409511" name="configparser_api_changes.patch" size="926" />
+  <entry md5="c73d4767065dcf35906cdfdbcfb1d920" mtime="1457409499" name="kazam.install" size="178" />
+  <entry md5="847ae2478ae5e35f6e1af49aa9fb3fa9" mtime="1457409521" name="version.patch" size="258" />
+</directory>
