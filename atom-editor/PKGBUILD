@@ -17,12 +17,12 @@ source=("v${pkgver}.tar.gz::https://codeload.github.com/atom/atom/tar.gz/v${pkgv
 sha256sums=('e08024308daa61967db5b81c38d913696f6bdffd689c5b96050832c4b2026d52')
 
 prepare() {
-  cd "${_pkgname}-$pkgver"
+  cd "$srcdir/${_pkgname}-$pkgver"
 
   sed -i -e "/exception-reporting/d" \
 	       -e "/metrics/d" package.json
 
-  sed -i -e "s/<%= description %>/$pkgdesc/" \
+  sed -e "s/<%= description %>/$pkgdesc/" \
          -e "s/<%= appName %>/Atom/g" \
          -e "s|<%= installDir %>/share/<%= appFileName %>|/usr/bin|g" \
          -e "s/<%= iconPath %>/atom/g" \
