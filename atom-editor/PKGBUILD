@@ -22,6 +22,8 @@ prepare() {
   sed -i -e "/exception-reporting/d" \
 	       -e "/metrics/d" package.json
 
+  chmod 755 -R package.json
+
   sed -e "s/<%= description %>/$pkgdesc/" \
          -e "s/<%= appName %>/Atom/g" \
          -e "s|<%= installDir %>/share/<%= appFileName %>|/usr/bin|g" \
