@@ -19,7 +19,7 @@ source=("https://github.com/atom/atom/archive/v${_pkgver}-beta${_pkgrel}.tar.gz"
 sha256sums=('d370f725a1b6fab0583f7d412f189a3c35603a7472a6566b188d0c2ae7e98bdf')
 
 prepare() {
-	cd "atom-${_pkgver}-beta${_pkgrel}"
+	cd "$srcdir/atom-${_pkgver}-beta${_pkgrel}"
 
   sed -i -e "/exception-reporting/d" \
 	       -e "/metrics/d" package.json
@@ -59,10 +59,8 @@ package() {
   fi
 	if [[ -f "$pkgdir/usr/bin/apm" ]]; then
 		rm "$pkgdir/usr/bin/apm"
-		cd "$pkgdir/usr/bin"
-		ln -s "../share/atom-beta/resources/app/apm-beta/node_modules/.bin/apm-beta" apm-beta
-		cd -
-  fi
+	fi
+	ln -sf "${pkgdir}/usr/share/atom-beta/resources/app/apm-beta/node_modules/.bin/apm-beta" "${pkgdir}/usr/bin/apm-beta"
 	if [[ -f "$pkgdir/usr/share/applications/atom.desktop" ]]; then
   	rm "$pkgdir/usr/share/applications/atom.desktop"
 	fi
