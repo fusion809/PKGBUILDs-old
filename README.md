@@ -17,7 +17,7 @@ In this repo `linux` and `virtualbox-modules` are provided (both have been built
 Moksha (`moksha`) is a less fancy (e.g., no compositing, by default), faster and less-buggy fork of Enlightenment DR17, that is used by the Bodhi Linux distribution. I have found later releases of Enlightenment, such as E20, tend to be more buggy, especially, with respect to graphical bugs, than Moksha. For example, if I use either the Atom text editor or Google Chrome for long enough under E20, I will almost invariably encounter a graphical bug, wherein part of the Atom/Google Chrome window will freeze on the screen, and be visible, even when this window is minimized. The only solution, I have found, is killing Atom/Google Chrome (not just closing them by pressing their close button) using the `kill` or `pkill` commands. Moksha also uses less RAM and CPU than E19, E20 and LXDE. I have also added `moksha` and select, more popular, moksha modules (along with the `moksha-modules-extra-git` meta-package)/themes to the AUR, to find them online click [here](https://aur.archlinux.org/packages/?O=0&SeB=nd&K=moksha&outdated=&SB=n&SO=a&PP=50&do_Search=Go).
 
 ## Vim
-I have also included Vim-related packages, as [Vim updates](https://github.com/vim/vim/releases) come out daily or even hourly, so it is unrealistic to expect the maintainers of the gvim and vim packages at https://www.archlinux.org/packages/extra/x86_64/gvim and https://www.archlinux.org/packages/extra/x86_64/vim, respectively, to keep them constantly up-to-date. To install the latest gVim using this repository I recommend you run:
+I have also included Vim-related packages, as [Vim updates](https://github.com/vim/vim/releases) come out daily or even hourly, so it is unrealistic to expect the maintainers of the `gvim` and `vim` packages at https://www.archlinux.org/packages/extra/x86_64/gvim and https://www.archlinux.org/packages/extra/x86_64/vim, respectively, to keep them constantly up-to-date. To install the latest gVim using this repository I recommend you run:
 
 ```bash
 git clone https://github.com/fusion809/PKGBUILDs
@@ -25,4 +25,4 @@ cd PKGBUILDs/gvim-git
 makepkg -si --noconfirm
 ```
 
-The `gvim-git` package in this repository is a combination of the `gvim-git` and `vim-runtime-git` packages in the AUR. I merged these packages to save bandwidth and disk space, as both PKGBUILDs clone the same [GitHub repository](https://github.com/vim/vim).
+The `gvim-git` package in this repository is a combination of the `gvim-git` and `vim-runtime-git` packages in the AUR. I merged these packages to save bandwidth and disk space, as both PKGBUILDs clone the same [GitHub repository](https://github.com/vim/vim). Likewise the `gvim` package in this repository is also a combination of the `gvim` and `vim-runtime` packages in the `[extra]` pacman repository, except it is updated more frequently. 
