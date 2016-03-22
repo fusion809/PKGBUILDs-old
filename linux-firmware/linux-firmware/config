@@ -1,8 +1,0 @@
-[core]
-	repositoryformatversion = 0
-	filemode = true
-	bare = true
-[remote "origin"]
-	url = https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
-	fetch = +refs/*:refs/*
-	mirror = true
